@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\TestSchedule;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 
@@ -27,5 +28,7 @@ class TestTaskScheduleCommand extends Command
     public function handle()
     {
         Log::info('Test task schedule successfully');
+        TestSchedule::dispatch();
+        return 0;
     }
 }
